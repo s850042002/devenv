@@ -116,6 +116,9 @@ if ! shopt -oq posix; then
   fi
 fi
 
+# path
+PATH=$PATH:/usr/local/go/bin:/home/johnny/go/bin
+
 # k8s
 alias kl=kubectl
 complete -F __start_kubectl kl
@@ -124,4 +127,8 @@ complete -F __start_kubectl kl
 . ~/git-completion.bash
 . ~/git-prompt.sh
 export GIT_PS1_SHOWDIRTYSTATE=1
-export PS1='\w$(__git_ps1 " (%s)")\$ '
+export PS1='\W$(__git_ps1 " (%s)")\$ '
+
+# Generated for envman. Do not edit.
+[ -s "$HOME/.config/envman/load.sh" ] && source "$HOME/.config/envman/load.sh"
+
