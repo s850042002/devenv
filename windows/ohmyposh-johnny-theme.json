@@ -10,33 +10,6 @@
           "vertical_offset": 0,
           "segments": [
               {
-                "type": "os",
-                "style": "diamond",
-                "foreground": "#000000",
-                "background": "#d3d7cf",
-                "leading_diamond": "╭─"
-              },
-              {
-                "type": "battery",
-                "style": "powerline",
-                "powerline_symbol": "\uE0B0",
-                "foreground": "#193549",
-                "background": "#ffeb3b",
-                "properties": {
-                  "battery_icon": "",
-                  "discharging_icon": "\uE231 ",
-                  "charging_icon": "\uE234 ",
-                  "charged_icon": "\uE22F ",
-                  "color_background": true,
-                  "charged_color": "#4caf50",
-                  "charging_color": "#40c4ff",
-                  "discharging_color": "#ff5722",
-                  "postfix": "\uF295 ",
-                  "display_charging": true,
-                  "display_charged": true
-                }
-              },
-              {
                   "type": "path",
                   "style": "diamond",
                   "powerline_symbol": "",
