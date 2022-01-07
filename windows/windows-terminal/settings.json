@@ -1,13 +1,7 @@
 {
   "$schema": "https://aka.ms/terminal-profiles-schema",
-  // Add custom actions and keybindings to this array.
-  // To unbind a key combination from your defaults.json, set the command to "unbound".
-  // To learn more about actions and keybindings, visit https://aka.ms/terminal-keybindings
   "actions": 
   [
-      // Copy and paste are bound to Ctrl+Shift+C and Ctrl+Shift+V in your defaults.json.
-      // These two lines additionally bind them to Ctrl+C and Ctrl+V.
-      // To learn more about selection, visit https://aka.ms/terminal-selection
       {
           "command": 
           {
@@ -25,13 +19,12 @@
           "keys": "ctrl+f"
       },
       {
-        "command": "closeTab",
-        "keys": "ctrl+w"
+          "command": 
+          {
+              "action": "closeTab"
+          },
+          "keys": "ctrl+w"
       },
-      // Press Alt+Shift+D to open a new pane.
-      // - "split": "auto" makes this pane open in the direction that provides the most surface area.
-      // - "splitMode": "duplicate" makes the new pane use the focused pane's profile.
-      // To learn more about panes, visit https://aka.ms/terminal-panes
       {
           "command": 
           {
@@ -51,9 +44,19 @@
       "list": 
       [
           {
-              "bellStyle": "visual",
+              "bellStyle": 
+              [
+                  "window",
+                  "taskbar"
+              ],
+              "commandline": "C:\\Program Files\\PowerShell\\7\\pwsh.exe -NoLogo",
+              "cursorShape": "vintage",
               "experimental.retroTerminalEffect": false,
-              "fontSize": 14,
+              "font": 
+              {
+                  "face": "CaskaydiaCove Nerd Font",
+                  "size": 14
+              },
               "guid": "{574e775e-4f2a-5b96-ac1e-a2962a402336}",
               "hidden": false,
               "name": "PowerShell 7",

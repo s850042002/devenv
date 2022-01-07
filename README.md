@@ -16,14 +16,26 @@ cd devenv
 ```
 
 # **How to Use (Windows)**
-Clone this repo
-
+1. Clone this repo and enter windows directory
 ```
 git clone https://github.com/s850042002/devenv
+cd devenv/windows
 ```
 
-Enter repo and execute script with `powershell`
+2. Execute `install-essentials.ps1` by `powershell` or `pwsh` with Administator privilege
 ```
-cd devenv/windows
-./install-essentials.ps1
-``` 
+Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol; .\install-essentials.ps1
+```
+Following components will be installed
+- git
+- Windows Terminal
+- pwsh (Powershell Core)
+- oh-my-posh
+- vscode
+- 7zip
+- notepad++
+
+3. Execute `pwsh-gear.ps1` by `pwsh` with Administator privilege
+```
+.\pwsh-gear.ps1
+```

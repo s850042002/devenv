@@ -7,7 +7,7 @@ if (!(Get-Command choco.exe -errorAction SilentlyContinue)) {
     Write-Host "install chocolatey successfully"
   }
   else {
-    Write-Host "install chocolatey failed"
+    Write-Error "install chocolatey failed"
     return
   }
 }
@@ -17,8 +17,9 @@ choco outdated
 
 # install essential tools
 choco install git.install -y
-choco install powershell-core -y
 choco install microsoft-windows-terminal -y
-choco install vscode -y 
+choco install pwsh -y
+choco install oh-my-posh -y
+choco install vscode -y
 choco install 7zip -y
 choco install notepadplusplus -y
