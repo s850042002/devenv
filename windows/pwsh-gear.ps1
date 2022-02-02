@@ -1,5 +1,4 @@
 # install modules
-Install-Module oh-my-posh -Scope CurrentUser -Force
 Install-Module Terminal-Icons -Repository PSGallery -Force
 Install-Module PSReadLine -AllowPreRelease -Force
 
@@ -12,7 +11,7 @@ Remove-Item -Path .\CascadiaCode.zip
 
 # copy profile and theme to user's home directory
 Copy-Item -Path .\pwsh-profile.ps1 -Destination $PROFILE
-Copy-Item -Path .\ohmyposh-johnny-theme.json -Destination ~/.ohmyposh-johnny-theme.json
+Copy-Item -Path .\starship.toml -Destination ~/.config/starship.toml
 
 # reload profile
 . $PROFILE

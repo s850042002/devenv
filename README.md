@@ -30,7 +30,7 @@ Following components will be installed
 - git
 - Windows Terminal
 - pwsh (Powershell Core)
-- oh-my-posh
+- starship
 - vscode
 - 7zip
 - notepad++

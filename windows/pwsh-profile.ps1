@@ -1,9 +1,8 @@
 using namespace System.Management.Automation
 using namespace System.Management.Automation.Language
 
-Import-Module oh-my-posh
 Import-Module Terminal-Icons
-Set-PoshPrompt -Theme ~/.ohmyposh-johnny-theme.json
+Invoke-Expression (&starship init powershell)
 
 if ($host.Name -eq 'ConsoleHost')
 {
@@ -313,7 +312,7 @@ Set-PSReadLineKeyHandler -Key Backspace `
     }
 }
 
-# 快速開啟 c:\windows\system32\drivers\etc\hosts 檔案
+# directly open c:\windows\system32\drivers\etc\hosts
 function hosts { notepad c:\windows\system32\drivers\etc\hosts }
 
 # 快速產生一組亂數密碼 (預設會產生 10 個字元的密碼)

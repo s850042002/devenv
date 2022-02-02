@@ -19,7 +19,7 @@ choco outdated
 choco install git.install -y
 choco install microsoft-windows-terminal -y
 choco install pwsh -y
-choco install oh-my-posh -y
 choco install vscode -y
 choco install 7zip -y
 choco install notepadplusplus -y
+choco install starship

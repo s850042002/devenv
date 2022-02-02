@@ -132,3 +132,5 @@ export PS1='\W$(__git_ps1 " (%s)")\$ '
 # Generated for envman. Do not edit.
 [ -s "$HOME/.config/envman/load.sh" ] && source "$HOME/.config/envman/load.sh"
 
+# init starship prompt
+eval "$(starship init bash)"
