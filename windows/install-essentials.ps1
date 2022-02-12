@@ -20,6 +20,6 @@ choco install git.install -y
 choco install microsoft-windows-terminal -y
 choco install pwsh -y
 choco install vscode -y
-choco install 7zip -y
-choco install notepadplusplus -y
+choco install 7zip.install -y
+choco install notepadplusplus.install -y
 choco install starship
