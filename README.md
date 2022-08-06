@@ -15,6 +15,13 @@ cd devenv
 ./install-configs.sh
 ```
 
+## **Install/Update Golang**
+The shell script is copied from https://github.com/udhos/update-golang
+
+```sh
+sudo ./go.sh
+```
+
 # **How to Use (Windows)**
 1. Clone this repo and enter windows directory
 ```
