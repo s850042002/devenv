@@ -1,3 +1,28 @@
+# List of essential tools
+$essentialTools = @(
+    "git",
+    "microsoft-windows-terminal",
+    "pwsh",
+    "awscli",
+    "sops"
+    "vscode",
+    "7zip",
+    "notepadplusplus",
+    "starship"
+)
+
+# Function to install or update a package and print result
+function InstallOrUpdate-ChocolateyPackage($packageName) {
+  if (choco outdated $packageName --exit-code) {
+      choco upgrade $packageName -y
+      Write-Host "Updated $packageName"
+  }
+  else {
+      choco install $packageName -y
+      Write-Host "Installed $packageName"
+  }
+}
+
 # check whether chocolatey is already exist
 if (!(Get-Command choco.exe -errorAction SilentlyContinue)) {
   # install chocolatey
@@ -12,14 +37,11 @@ if (!(Get-Command choco.exe -errorAction SilentlyContinue)) {
   }
 }
 
-# show version of chocolatey
-choco outdated
+# install or update essential tools
+foreach ($tool in $essentialTools) {
+  InstallOrUpdate-ChocolateyPackage $tool
+}
 
-# install essential tools
-choco install git.install -y
-choco install microsoft-windows-terminal -y
-choco install pwsh -y
-choco install vscode -y
-choco install 7zip.install -y
-choco install notepadplusplus.install -y
-choco install starship
+# Display versions of installed tools
+Write-Host "Versions of installed tools:"
+choco list --localonly
