@@ -10,6 +10,7 @@ else
   apt install build-essential -y
   apt install tmux -y
   apt install curl -y
+  apt install unzip -y
 
   # install openjdk 21
   echo "installing openjdk 21..."
@@ -26,8 +27,17 @@ else
   ./golang-upgrade.sh
 
   # install nvm
+  # https://github.com/nvm-sh/nvm?tab=readme-ov-file#installing-and-updating
   echo "installing nvm..."
   curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.1/install.sh | bash
+
+  # install awscli v2
+  # https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html
+  echo "installing awscli v2..."
+  curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+  unzip awscliv2.zip
+  sudo ./aws/install
+  rm -rf awscliv2.zip aws
 
   # install starship prompt
   echo "installing starship prompt..."
