@@ -7,9 +7,13 @@ else
   echo "updating and upgrading"
   apt update && apt upgrade -y
 
-  apt install build-essential
-  apt install tmux
-  apt install curl
+  apt install build-essential -y
+  apt install tmux -y
+  apt install curl -y
+
+  # install openjdk 21
+  echo "installing openjdk 21..."
+  apt install openjdk-21-jdk -y
 
   # install git
   echo "installing git..."
@@ -17,11 +21,9 @@ else
   sudo apt-get update
   sudo apt-get install git -y
 
-  # install golang 1.23.1
-  echo "installing golang 1.23.1..."
-  curl -L -o go1.23.1.linux-amd64.tar.gz https://golang.org/dl/go1.23.1.linux-amd64.tar.gz
-  rm -rf /usr/local/go
-  tar -C /usr/local -xzf go1.23.1.linux-amd64.tar.gz
+  # install/upgrade golang
+  echo "installing/upgrading golang..."
+  ./golang-upgrade.sh
 
   # install nvm
   echo "installing nvm..."
