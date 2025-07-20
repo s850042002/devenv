@@ -49,7 +49,16 @@ Following components will be installed
 .\pwsh-gear.ps1
 ```
 
-4. [optional] Install `nerd-fonts` independently, the script will retrieve the latest release from the[Github repository](https://github.com/ryanoasis/nerd-fonts/)
+4. [optional] Install `nerd-fonts` independently. The script will retrieve the latest release from the [GitHub repository](https://github.com/ryanoasis/nerd-fonts/).
 ```
 .\install-font.ps1
+```
+
+
+4. [optional] Install Docker independently. The script downloads the latest Docker engine and CLI from the [official Docker repository](https://download.docker.com/win/static/stable/x86_64/). 
+
+**Note:** This installation only supports Windows containers. To run Linux containers, you'll need to install Docker Desktop separately.
+
+```
+.\install-docker.ps1
 ```
