@@ -11,15 +11,15 @@ git clone https://github.com/s850042002/devenv
 Enter repo and execute script with `bash`
 ```
 cd devenv
-./install-essentials.sh
-./install-configs.sh
+sudo ./install-essentials.sh
+sudo ./install-configs.sh
 ```
 
 ## **Install/Update Golang**
-The shell script is copied from https://github.com/udhos/update-golang
+The `golang-upgrade.sh` is copied from https://github.com/udhos/update-golang
 
 ```sh
-sudo ./go.sh
+sudo ./golang-upgrade.sh
 ```
 
 # **How to Use (Windows)**
@@ -39,10 +39,17 @@ Following components will be installed
 - pwsh (Powershell Core)
 - starship
 - vscode
+- awscli
+- sops
 - 7zip
 - notepad++
 
-3. Execute `pwsh-gear.ps1` by `pwsh` with Administator privilege
+3. Execute `pwsh-gear.ps1` by `pwsh` with Administator privilege, `nerd-fonts` will be installed as well
 ```
 .\pwsh-gear.ps1
+```
+
+4. [optional] Install `nerd-fonts` independently, the script will retrieve the latest release from the[Github repository](https://github.com/ryanoasis/nerd-fonts/)
+```
+.\install-font.ps1
 ```

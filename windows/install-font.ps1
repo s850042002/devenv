@@ -196,16 +196,29 @@ if ($Scope -eq 'System') {
     throw 'Per-user fonts are only supported from Windows 10 1809.'
 }
 
-# Use script location if no path provided
-if (!$PSBoundParameters.ContainsKey('Path')) {
-    $Path = $PSScriptRoot
+# Get the latest release info from nerd-fonts repository
+echo "Getting latest release info from GitHub API..."
+$latestReleaseUrl = "https://api.github.com/repos/ryanoasis/nerd-fonts/releases/latest"
+$releaseInfo = Invoke-RestMethod -Uri $latestReleaseUrl
+$cascadiaCodeAsset = $releaseInfo.assets | Where-Object { $_.name -eq "CascadiaCode.zip" }
+
+if (-not $cascadiaCodeAsset) {
+    throw "CascadiaCode.zip not found in the latest release"
 }
+
+echo "Downloading CascadiaCode.zip from: $($cascadiaCodeAsset.browser_download_url)"
+Invoke-WebRequest -Uri $cascadiaCodeAsset.browser_download_url -OutFile CascadiaCode.zip
+$tmpFolder = New-TemporaryFile | %{ rm $_; mkdir $_ }
+
+echo "Extracting CascadiaCode.zip to temporary folder: $tmpFolder"
+Expand-Archive -LiteralPath CascadiaCode.zip -DestinationPath $tmpFolder
+Remove-Item -Path .\CascadiaCode.zip
 
 # Validate the source font path
 try {
-    $SourceFontPath = Get-Item -Path $Path -ErrorAction Stop
+    $SourceFontPath = Get-Item -Path $tmpFolder -ErrorAction Stop
 } catch {
-    throw ('Provided path is invalid: {0}' -f $Path)
+    throw ('Provided path is invalid: {0}' -f $tmpFolder)
 }
 
 # Enumerate fonts to be installed
@@ -227,8 +240,9 @@ if ($SourceFontPath -is [IO.DirectoryInfo]) {
 
 # Install fonts using selected method
 if ($SourceFonts) {
+    echo "Installing fonts: $($SourceFonts.Name)"
     switch ($Method) {
         'Manual' { Install-FontManual -Fonts $SourceFonts -Scope $Scope }
-        'Shell' { Install-FontShell -Fonts $SourceFonts}
+        'Shell' { Install-FontShell -Fonts $SourceFonts }
     }
 }
